@@ -1,0 +1,142 @@
+/* ОБЩИЕ СТИЛИ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+body {
+    background: #ffffff;
+    padding: 60px 20px;
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* HERO SECTION */
+.hero { margin-bottom: 60px; }
+h1.title { font-size: 52px; font-weight: 800; margin-bottom: 16px; letter-spacing: -1px; }
+.subtitle { color: #57606a; max-width: 800px; margin: 0 auto 24px; line-height: 1.5; }
+
+/* КНОПКИ */
+.btn-black, .btn-white {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.btn-black {
+    background: #24292f;
+    color: white;
+    border: 1px solid #24292f;
+}
+.btn-white {
+    background: white;
+    color: #24292f;
+    border: 1px solid #d0d7de;
+}
+
+.btn-black:hover {
+    background: #2b3137;       /* Цвет становится чуть светлее (графитовый) */
+    border-color: #2b3137;
+    box-shadow: 0 4px 12px rgba(27, 31, 36, 0.15); /* Добавляем легкую тень */
+}
+
+/* 3. Эффект для БЕЛОЙ кнопки */
+.btn-white:hover {
+    border-color: #8c949d;     /* Рамка становится темнее и заметнее */
+    background-color: #f6f8fa; /* Появляется еле заметный серый оттенок фона */
+                /* Текст можно сделать синим (в стиле GitHub) */
+}
+
+/* СЕТКА ТАРИФОВ (FLEXBOX) */
+.price-section {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 0; /* Карточки "прилипли" друг к другу */
+    margin-bottom: 80px;
+}
+
+
+/* КАРТОЧКА */
+.pricing-card {
+    border: 1px solid #d0d7de;
+    padding: 32px;
+    background: white;
+    width: 350px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+/* КАРТОЧКА ENTERPRISE (Акцент) */
+.card-enterprise {
+    border: 2px solid #0969da;
+    border-radius: 6px;
+    position: relative;
+    z-index: 2;
+}
+
+.badge-recommended {
+    position: absolute;
+    top: -24px; left: -2px; right: -2px;
+    background: #0969da; color: white;
+    font-size: 12px; font-weight: bold; text-align: center;
+    padding: 4px; border-radius: 6px 6px 0 0;
+}
+
+/* ЦЕНЫ */
+.card-price { margin: 24px 0; }
+.price-num { font-size: 48px; font-weight: 600; }
+.card-price sup { font-size: 20px; color: #57606a; }
+.card-price sub { font-size: 14px; font-weight: 600; }
+.pum { display: block; font-size: 12px; color: #57606a; }
+
+/* DETAILS & SUMMARY */
+summary { list-style: none; cursor: pointer; font-weight: 600; padding: 12px 0; border-top: 1px solid #f6f8fa; font-size: 14px; }
+summary::before { content: "› "; color: #57606a; }
+.detail-body { font-size: 13px; color: #57606a; padding-bottom: 10px; padding-left: 12px; }
+
+/* СЕТКА ДОПОЛНЕНИЙ (CSS GRID - как просил препод) */
+.addons-section { margin-top: 100px; text-align: left; }
+.section-title { font-size: 32px; margin-bottom: 24px; text-align: center; }
+
+.addon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+    gap: 24px;
+}
+
+.addon-card {
+    border: 1px solid #d0d7de;
+    padding: 24px;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+.addon-card:hover { border-color: #0969da; box-shadow: 0 8px 24px rgba(149,157,165,0.2); }
+.addon-card h3 { font-size: 18px; margin-bottom: 8px; }
+.addon-card p { font-size: 14px; color: #57606a; margin-bottom: 12px; }
+.addon-card a { color: #0969da; text-decoration: none; font-weight: 600; font-size: 14px; }
+
+/* АДАПТИВНОСТЬ (Breakpoint) */
+@media (max-width: 1000px) {
+    .price-section, .addon-grid {
+        flex-direction: column;
+        grid-template-columns: 1fr;
+        align-items: center;
+    }
+    .pricing-card { width: 100%; max-width: 500px; }
+}
+
+
+
+
+
+
