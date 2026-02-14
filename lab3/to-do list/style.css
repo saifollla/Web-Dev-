@@ -1,0 +1,93 @@
+/* 1. Смена шрифта на более современный и мягкий */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif; /* Поменяли Arial на Montserrat */
+}
+
+body {
+    /* 2. Заменили серый фон на нежный градиент */
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    color: #444;
+    min-height: 100vh;
+}
+
+.header {
+    /* 3. Теплый "закатный" цвет вместо синего */
+    background-color: #ff8a65;
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.container {
+    max-width: 450px;
+    margin: -1.5rem auto 2rem; /* Немного "наезжает" на шапку для стиля */
+    background-color: white;
+    padding: 2rem;
+    border-radius: 16px; /* Больше скругления — меньше строгости */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.todo-form label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: bold;
+    color: #ff8a65; /* Цвет в тон заголовку */
+}
+
+.input-group input {
+    flex: 1;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 2px solid #eee;
+    border-radius: 8px; /* Скруглили края */
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #ff8a65; /* Подсветка при клике */
+}
+
+.input-group button {
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #4f46e5; /* Оставим акцентную кнопку, но скруглим */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.input-group button:hover {
+    transform: translateY(-2px); /* Эффект при наведении */
+}
+
+/* Стилизация списка */
+.todo-item {
+    background: #fff;
+    margin-bottom: 0.5rem;
+    padding: 0.8rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.delete-btn {
+    background-color: transparent; /* Сделаем кнопку удаления менее агрессивной */
+    color: #ff5252;
+    border: 1px solid #ff5252;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #ff5252;
+    color: white;
+}
