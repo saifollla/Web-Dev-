@@ -1,0 +1,16 @@
+<div class="container" *ngIf="album">
+  <h2>Edit Album</h2>
+
+  <div style="margin-bottom: 20px;">
+    <p><strong>Album ID:</strong> {{ album.id }}</p>
+    <label>Title:</label>
+    <br>
+    <input [(ngModel)]="album.title" style="width: 100%; padding: 8px; margin-top: 5px;" />
+  </div>
+
+  <div class="buttons">
+    <button (click)="save()" style="background-color: #28a745; color: white;">Save Changes</button>
+    <button (click)="goBack()">Back to List</button>
+    <button [routerLink]="['photos']" style="background-color: #17a2b8; color: white;">View Photos</button>
+  </div>
+</div>

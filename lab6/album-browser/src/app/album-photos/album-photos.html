@@ -1,0 +1,13 @@
+<div class="container">
+  <button routerLink=".." class="back-btn">← Back to Album</button>
+  <h2>Photos in this Album</h2>
+
+  <div class="photo-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+    <div *ngFor="let photo of photos" style="width: 150px; text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 10px;">
+      <img [src]="'https://picsum.photos/id/' + photo.id + '/150/150'"
+           [alt]="photo.title"
+           style="width: 150px; height: 150px; border-radius: 5px; ">
+      <p style="font-size: 11px; margin-top: 8px; height: 40px; overflow: hidden;">{{ photo.title }}</p>
+    </div>
+  </div>
+</div>

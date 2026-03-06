@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Albums List</h1>
+
+  <div *ngIf="loading">Loading albums...</div>
+  <div *ngIf="!loading && albums.length === 0">
+    <p>No albums found. The list is empty.</p>
+  </div>
+  <ul *ngIf="!loading">
+    <li *ngFor="let album of albums">
+      <span [routerLink]="['/albums', album.id]" class="album-title">
+        {{ album.id }}. {{ album.title }}
+      </span>
+      <button (click)="deleteAlbum(album.id)" class="delete-btn">Delete</button>
+    </li>
+  </ul>
+
+</div>
