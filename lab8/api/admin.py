@@ -11,4 +11,6 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'price', 'count', 'is_active', 'category')
 
     list_filter = ('is_active', 'category')
-    search_fields = ('name', 'description', 'price')
+    search_fields = ('name', 'description', 'price', 'category__name')
+    list_editable = ('price', 'count', 'is_active', 'name')
+

@@ -1,9 +1,12 @@
 from django.http import JsonResponse
 from .models import Product, Category
-from rest_framework import viewsets
+from rest_framework import viewsets, filters
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from .serializers import CategorySerializer, ProductSerializer
+from django_filters.rest_framework import DjangoFilterBackend
+
+
 # Create your views here.
 
 def product_list(request):
@@ -69,3 +72,18 @@ class CategoryViewSet(viewsets.ModelViewSet):
 class ProductViewSet(viewsets.ModelViewSet):    
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ['name', 'description','category__name']
+    ordering_fields = ['price', 'count']
+    filterset_fields = ['category', 'is_active']
+
+    def get_queryset(self):
+        queryset = Product.objects.all()
+        return self.filter_queryset(super().get_queryset())   
+
+
+    @action(detail=False, methods=['get'])
+    def active(self, request):
+        active_products = Product.objects.filter(is_active=True)
+        serializer = self.get_serializer(active_products, many=True)
+        return Response(serializer.data)
